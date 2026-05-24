@@ -13,14 +13,19 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 
 const expresionHora = /^([01]\d|2[0-3]):([0-5]\d)$/; // Formato HH:mm // Traducción
 
-const esquemaClaseManual = z.object({ // Traducción
-  asignatura: z.string().min(1, "La asignatura es obligatoria"), // Traducción
-  profesor: z.string().optional(), // Traducción
-  dia: z.enum(TODOS_LOS_DIAS, { required_error: "El día es obligatorio" }), // Traducción
-  horaInicio: z.string().regex(expresionHora, "Hora de inicio inválida (HH:mm)"), // Traducción
-  horaFin: z.string().regex(expresionHora, "Hora de fin inválida (HH:mm)"), // Traducción
-  ubicacion: z.string().optional(), // Traducción
-}).refine(data => data.horaInicio < data.horaFin, { // Traducción
+const esquemaClaseManual = z.object({
+  asignatura: z.string().min(1, "La asignatura es obligatoria"),
+  profesor: z.string().optional(),
+  dia: z.enum(
+    ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+    {
+      required_error: "El día es obligatorio",
+    }
+  ),
+  horaInicio: z.string().regex(expresionHora, "Hora de inicio inválida (HH:mm)"),
+  horaFin: z.string().regex(expresionHora, "Hora de fin inválida (HH:mm)"),
+  ubicacion: z.string().optional(),
+}).refine(data => data.horaInicio < data.horaFin, {
   message: "La hora de fin debe ser posterior a la hora de inicio",
   path: ["horaFin"],
 });
