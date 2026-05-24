@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%; /* Black */
+    --foreground: 0 0% 98%; /* White */
+
+    --card: 0 0% 7%; /* Darker Gray for Card */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%; /* Darker Gray for Popover */
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 283 45% 53%; /* Saturated Purple */
+    --primary-foreground: 0 0% 98%; /* White text on primary */
+
+    --secondary: 0 0% 14.9%; /* Dark Gray */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%; /* Dark Gray */
+    --muted-foreground: 0 0% 63.9%; /* Lighter Gray for muted text */
+
+    --accent: 206 70% 70%; /* Soft Blue */
+    --accent-foreground: 0 0% 10%; /* Dark text on accent */
+
+    --destructive: 0 62.8% 30.6%; /* Darker Red for Destructive */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%; /* Dark Gray for borders */
+    --input: 0 0% 14.9%; /* Dark Gray for input backgrounds */
+    --ring: 206 70% 70%; /* Soft Blue for rings */
+
+    --radius: 0.5rem;
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 283 45% 53%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 206 70% 70%;
+  }
+
+  /* Remove .dark class as dark theme is default */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* font-family: var(--font-geist-sans), sans-serif; Ensure Geist font is applied if not by default */
+  }
+}
